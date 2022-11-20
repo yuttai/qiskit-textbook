@@ -7,6 +7,9 @@ from numpy import sqrt, cos, sin, pi
 import numexpr
 import re
 
+# 為了將有限小數轉換為分數 (主要使用limit_denominator()函式)
+from fractions import Fraction
+
 from qiskit_textbook.widgets._helpers import _pre, _img
 
 def binary_widget(nbits=5):
@@ -49,7 +52,7 @@ def state_vector_exercise(target):
                               width='50px',
                               disabled=False)
 
-    label = widgets.Label(value="State Vector!")
+    label = widgets.Label(value="State Vector:")
 
     def on_button_click(b):
         try:
@@ -59,13 +62,16 @@ def state_vector_exercise(target):
             output.value = str(e).split("(")[0]
             return
 
-        squared_magnitude = abs(c1)**2 + abs(c2)**2
-        p = abs(c1)**2
+        p1 = abs(c1) ** 2
+        p2 = abs(c2) ** 2
+        squared_magnitude = p1 + p2
         if not (squared_magnitude < 1.01 and squared_magnitude > .99): # Close Enough
             output.value = "Magnitude is not equal to 1"
             return
-        elif p > target*0.99 and p < target*1.01:
-            output.value = "Correct!"
+        elif p1 > target*0.99 and p1 < target*1.01:
+            output.value = "Correct!" + '\n' + \
+                           'The probability of measuring |0⟩ is ' + str(Fraction(p1).limit_denominator()) + '\n' + \
+                           "The probability of measuring |1⟩ is " + str(Fraction(p2).limit_denominator())
         else:
             output.value = "The absolute value of " + str(c1) + ", squared is not equal to " + str(target)
 
