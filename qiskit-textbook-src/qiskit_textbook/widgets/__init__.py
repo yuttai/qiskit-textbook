@@ -61,7 +61,7 @@ def state_vector_exercise(target):
         except Exception as e:
             output.value = str(e).split("(")[0]
             return
-
+        # 為了將有限小數轉換為分數 (主要使用limit_denominator()函式)
         p1 = abs(c1) ** 2
         p2 = abs(c2) ** 2
         squared_magnitude = p1 + p2
