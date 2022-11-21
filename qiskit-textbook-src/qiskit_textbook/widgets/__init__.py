@@ -122,7 +122,7 @@ def bloch_calc():
 
 
 def plot_bloch_vector_spherical(coords):
-    clear_output()
+    # clear_output()
     theta, phi, r = coords[0], coords[1], coords[2]
     x = r*sin(theta)*cos(phi)
     y = r*sin(theta)*sin(phi)
