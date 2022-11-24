@@ -60,14 +60,14 @@ def state_vector_exercise(target):
             return
 
         squared_magnitude = abs(c1)**2 + abs(c2)**2
-        p = abs(c1)**2
+        p = abs(c2)**2
         if not (squared_magnitude < 1.01 and squared_magnitude > .99): # Close Enough
             output.value = "Magnitude is not equal to 1"
             return
         elif p > target*0.99 and p < target*1.01:
             output.value = "Correct!"
         else:
-            output.value = "The absolute value of " + str(c1) + ", squared is not equal to " + str(target)
+            output.value = "The absolute value of " + str(c2) + ", squared is not equal to " + str(target)
 
     hbox = widgets.HBox([text_input, button])
     vbox = widgets.VBox([label, hbox])
