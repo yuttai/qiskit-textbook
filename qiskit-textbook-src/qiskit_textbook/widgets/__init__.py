@@ -1,6 +1,6 @@
 #!/usr/bin/env python3 
 # -*- coding: utf-8 -*-
-import ipywidgets as widgets
+#import ipywidgets as widgets
 from IPython.display import display, clear_output, Math
 from qiskit.visualization import plot_bloch_vector
 from numpy import sqrt, cos, sin, pi
