@@ -49,7 +49,7 @@ def state_vector_exercise(target):
                               width='50px',
                               disabled=False)
 
-    label = widgets.Label(value="State Vector!")
+    label = widgets.Label(value="State Vector:")
 
     def on_button_click(b):
         try:
