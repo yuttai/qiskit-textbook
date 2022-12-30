@@ -67,7 +67,8 @@ def state_vector_exercise(target):
         elif p > target*0.99 and p < target*1.01:
             output.value = "Correct!"
         else:
-            output.value = "The absolute value of " + str(c1) + ", squared is not equal to " + str(target)
+            ""output.value = "The absolute value of " + str(c1) + ", squared is not equal to " + str(target)+"這是作業2"
+        output.value += "\n\nThe absolute value of " + str(c2) + ", squared is equal to " + str(abs(c2)**2)
 
     hbox = widgets.HBox([text_input, button])
     vbox = widgets.VBox([label, hbox])
